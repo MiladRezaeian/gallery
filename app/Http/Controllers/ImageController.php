@@ -17,11 +17,23 @@ class ImageController extends Controller
     {
         Image::create($request->all());
 
-        return redirect()->route('index')->with('alert', 'Image has been uploaded');
+        return redirect()->route('index')->with('alert', 'Image has been uploaded.');
     }
 
-    public function show(Request $request, Image $image)
+    public function show(Image $image)
     {
         return view('images.show', compact('image'));
+    }
+
+    public function edit(Image $image)
+    {
+        return view('images.edit', compact('image'));
+    }
+
+    public function update(Request $request,Image $image)
+    {
+        $image->update($request->all());
+
+        return redirect()->route('images.show', $image)->with('alert', 'Image has been edited.');
     }
 }

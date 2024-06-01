@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description')->nullable();;
-            $table->text('path');
-            $table->string('mime_type')->nullable();;
+            $table->text('description')->nullable();
+            $table->text('path')->nullable();
+            $table->string('mime_type')->nullable();
             $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
         });

@@ -23,8 +23,6 @@ class StoreImageRequest extends FormRequest
     {
         return [
             'name' => ['required'],
-            'slug' => ['required', 'unique:images,slug'],
-            'path' => ['required', 'path'],
             'description' => ['required']
         ];
     }
