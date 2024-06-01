@@ -18,6 +18,10 @@ class ImageController extends Controller
         Image::create($request->all());
 
         return redirect()->route('index')->with('alert', 'Image has been uploaded');
+    }
 
+    public function show(Request $request, Image $image)
+    {
+        return view('images.show', compact('image'));
     }
 }

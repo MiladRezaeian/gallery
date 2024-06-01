@@ -9,10 +9,6 @@ class IndexController extends Controller
 {
     public function index()
     {
-        $images = Image::all();
-
-        return view('index', [
-            'images' => $images
-        ]);
+        return view('index');
     }
 }

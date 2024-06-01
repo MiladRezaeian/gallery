@@ -19,11 +19,6 @@
                                    placeholder="Name">
                         </div>
                         <div class="col-md-6">
-                            <label>Slug</label>
-                            <input type="text" name="path" class="form-control" value="{{old("path")}}"
-                                   placeholder="Slug">
-                        </div>
-                        <div class="col-md-6">
                             <label>Image Upload</label>
                             <input type="file" name="file" class="form-control">
                         </div>

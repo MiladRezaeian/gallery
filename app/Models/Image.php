@@ -12,4 +12,9 @@ class Image extends Model
     protected $fillable = [
       'name', 'path', 'description'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(Image::class);
+    }
 }

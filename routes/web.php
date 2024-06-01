@@ -8,3 +8,5 @@ Route::get('/', [IndexController::class, 'index'])->name('index');
 
 Route::get('/images/create', [ImageController::class, 'create'])->name('images.create');
 Route::post('/images', [ImageController::class, 'store'])->name('images.store');
+Route::get('/images/{image}', [ImageController::class, 'show'])->name('images.show');
+
