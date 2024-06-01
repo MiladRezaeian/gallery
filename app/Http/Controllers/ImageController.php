@@ -14,6 +14,8 @@ class ImageController extends Controller
 
     public function store(Request $request)
     {
-        //
+        Image::create($request->all());
+
+        return redirect()->route('index');
     }
 }
