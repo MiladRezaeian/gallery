@@ -44,7 +44,7 @@
                     <i class="fa fa-close"></i>
                 </a>
                 <div id="logo">
-                    <a href="/"><img src="img/logo.png" alt="" style="height: 45px;"></a>
+                    <a href="/"><img src="{{ asset('img/logo.png') }}" alt="" style="height: 45px;"></a>
                 </div>
             </div><!-- // col-md-2 -->
             <div class="col-lg-3 col-md-3 col-sm-6 hidden-xs hidden-sm">
@@ -61,14 +61,14 @@
                                 src="https://0.gravatar.com/avatar/6a364e96288458765d7fb94777972d2e95458ddff85c92f5785a827cb5f6304e?s=80"
                                 alt="">
                         </div>
-                        <h2>میلاد رضائیان</h2>
-                        <h3>اشتراک عکس</h3>
+                        <h2>Milad Rezaeian</h2>
+                        <h3>Share Image</h3>
                         <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu account-menu">
-                        <li><a href="#"><i class="fa fa-edit color-1"></i>ویرایش پروفایل</a></li>
-                        <li><a href="#"><i class="fa fa-photo color-2"></i>آپلود عکس جدید</a></li>
-                        <li><a href="#"><i class="fa fa-sign-out color-4"></i>خروج</a></li>
+                        <li><a href="#"><i class="fa fa-edit color-1"></i>Edit Profile</a></li>
+                        <li><a href="{{ route('images.create') }}"><i class="fa fa-photo color-2"></i>Upload New Image</a></li>
+                        <li><a href="#"><i class="fa fa-sign-out color-4"></i>Logout</a></li>
                     </ul>
                 </div>
             </div>
