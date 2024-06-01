@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreImageRequest;
 use App\Models\Image;
 use Illuminate\Http\Request;
 
@@ -12,10 +13,11 @@ class ImageController extends Controller
         return view('images.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreImageRequest $request)
     {
         Image::create($request->all());
 
-        return redirect()->route('index');
+        return redirect()->route('index')->with('alert', 'Image has been uploaded');
+
     }
 }
