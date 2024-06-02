@@ -2610,7 +2610,13 @@ header ul.top-menu li a{
 #logo img {
     height: 45px;
 }
-
+#watch .description {
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+#watch .description p {
+    color: black;
+}
 @media screen and (max-width: 375px) {
 }
 @media screen and (max-width: 260px) {

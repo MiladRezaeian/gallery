@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreImageRequest;
 use App\Models\Image;
+use App\Services\ImageService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
 {
@@ -15,7 +17,7 @@ class ImageController extends Controller
 
     public function store(StoreImageRequest $request)
     {
-        Image::create($request->all());
+        (new ImageService)->create($request->user(), $request->all());
 
         return redirect()->route('index')->with('alert', 'Image has been uploaded.');
     }
@@ -32,7 +34,7 @@ class ImageController extends Controller
 
     public function update(Request $request,Image $image)
     {
-        $image->update($request->all());
+        (new ImageService)->update($image, $request->all());
 
         return redirect()->route('images.show', $image)->with('alert', 'Image has been edited.');
     }

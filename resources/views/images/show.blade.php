@@ -9,7 +9,7 @@
 
                 <h1 class="image-title">{{ $image->name }}</h1>
                 <div class="image-code">
-                    <img src="{{ $image->path }}" alt="" width="500" height="600">
+                    <img src="{{ Storage::url($image->path) }}" alt="" width="500" height="600">
                 </div>
 
                 <div class="description">
