@@ -69,7 +69,7 @@
                         <ul class="dropdown-menu account-menu">
                             <li><a href="{{ route('images.create') }}"><i class="fa fa-photo color-2"></i>Upload New
                                     Image</a></li>
-                            <li><a href="#"><i class="fa fa-sign-out color-4"></i>Logout</a></li>
+                            <li><a href="{{route('logout')}}"><i class="fa fa-sign-out color-4"></i>Logout</a></li>
                         </ul>
                     </div>
                 </div>

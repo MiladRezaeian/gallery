@@ -16,3 +16,4 @@ Route::post('/images/{image}/', [ImageController::class, 'update'])->name('image
 
 Route::get('/login', [LoginController::class, 'show'])->name('login.show');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
+Route::get('/logout', [LoginController::class, 'destroy'])->name('logout');
