@@ -12,7 +12,7 @@
 
             <x-validation-errors></x-validation-errors>
 
-            <form action="" method="post">
+            <form action="{{ route('login.authenticate') }}" method="post">
                 @csrf
                 <div class="form-group label-floating">
                     <label class="control-label">Email</label>

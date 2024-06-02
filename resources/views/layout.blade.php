@@ -76,7 +76,7 @@
             @endauth
             @guest
                 <div class="col-lg-2 col-md-2 col-sm-3 hidden-xs hidden-sm">
-                    <a href="" class="btn btn-danger">Login</a>
+                    <a href="{{route('login.show')}}" class="btn btn-danger">Login</a>
                     <a href="" class="btn btn-danger">Register</a>
                 </div>
             @endguest
