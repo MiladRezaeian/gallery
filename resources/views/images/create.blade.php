@@ -7,7 +7,6 @@
 
             <x-validation-errors></x-validation-errors>
 
-            <!-- upload -->
             <div class="col-md-12">
                 <h1 class="page-title"><span>Upload</span> Image</h1>
                 <form action="{{ route('images.store') }}" method="POST" enctype="multipart/form-data">
@@ -32,13 +31,13 @@
                         </div>
                     </div>
                 </form>
-            </div><!-- // col-md-8 -->
+            </div>
 
             <div class="col-md-4">
                 <a href="#"><img src="{{ asset('img/upload-adv.png') }}" alt=""></a>
-            </div><!-- // col-md-8 -->
-            <!-- // upload -->
-        </div><!-- // row -->
-    </div><!-- // upload -->
+            </div>
+
+        </div>
+    </div>
 
 @endsection
