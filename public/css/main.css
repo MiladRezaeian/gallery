@@ -985,12 +985,14 @@ h1.new-image-title .fa{
 	color: #a7a7a7;
 	font-size: 10px;
 	font-weight: 500;
-	padding-right: 10px;
+	padding-left: 10px;
 	margin: 0px;
 	padding-top: 4px;
 	padding-bottom: 4px;
 }
-.image-item span.date{}
+.image-item span.date{
+    padding: 0px;
+}
 .image-item  span .fa{
 	padding-right: 5px;
 }
@@ -2606,6 +2608,9 @@ header ul.top-menu li a{
 	padding-top: 10px;
 	text-align:center
 	}
+}
+.right{
+    text-align: right;
 }
 #logo img {
     height: 45px;

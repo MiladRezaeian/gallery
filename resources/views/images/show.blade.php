@@ -54,7 +54,7 @@
                     @auth()
 
                         <h3 class="post-box-title">Post comments</h3>
-                        <form action="{{route('comments.store', $image)}}" method="post">
+                        <form action="{{route('comments.store', ['image' => $image->id])}}" method="post">
                             @csrf
                             <textarea class="form-control" name="body" rows="8" id="Message"
                                       placeholder="Message"></textarea>
