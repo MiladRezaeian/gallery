@@ -2,17 +2,17 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Comment;
+use App\Models\Image;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreCommentRequest extends FormRequest
+class UpdateImageRequest extends StoreImageRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return $this->user()->can('create', [Comment::class, $this->image]);
+        return $this->user()->can('update', [Image::class, $this->image]);
     }
 
     /**
@@ -22,8 +22,8 @@ class StoreCommentRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'body' => ['required']
-        ];
+        return array_merge(parent::rules(), [
+            'file' => ['file', 'mimetypes:video/mp4', 'max:1024', 'nullable']
+        ]);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreImageRequest;
+use App\Http\Requests\UpdateImageRequest;
 use App\Models\Image;
 use App\Services\ImageService;
 use Illuminate\Http\Request;
@@ -34,7 +35,7 @@ class ImageController extends Controller
         return view('images.edit', compact('image'));
     }
 
-    public function update(Request $request,Image $image)
+    public function update(UpdateImageRequest $request,Image $image)
     {
         (new ImageService)->update($image, $request->all());
 
