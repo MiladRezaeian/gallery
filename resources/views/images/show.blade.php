@@ -4,6 +4,8 @@
 
     <div class="row">
 
+        <x-validation-errors></x-validation-errors>
+
         <div class="col-md-12">
             <div id="watch">
 
@@ -23,75 +25,48 @@
                         <a href="#"><img src="demo_img/ch-1.jpg" alt=""></a>
                     </div>
                     <div class="chanel-info">
-                        <a class="title" href="#">Milad Rezaeian</a>
+                        <a class="title" href="#">{{ $image->owner_name }}</a>
                     </div>
                 </div>
 
                 <!-- Comments -->
                 <div id="comments" class="post-comments">
-                    <h3 class="post-box-title"><span>19</span> Comments</h3>
+                    <h3 class="post-box-title"><span>{{$image->comments->count()}}</span> Comments</h3>
                     <ul class="comments-list">
-                        <li>
-                            <div class="post_author">
-                                <div class="img_in">
-                                    <a href="#"><img src="demo_img/c1.jpg" alt=""></a>
-                                </div>
-                                <a href="#" class="author-name">Milad Rezaeian</a>
-                                <time datetime="2017-03-24T18:18">2022-03-11 - 11:00</time>
-                            </div>
-                            <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing
-                                industries for previewing layouts and visual mockups.</p>
-                            <a href="#" class="reply">Replay</a>
 
-                            <ul class="children">
-                                <li>
-                                    <div class="post_author">
-                                        <div class="img_in">
-                                            <a href="#"><img src="demo_img/c2.jpg" alt=""></a>
-                                        </div>
-                                        <a href="#" class="author-name">Milad Rezaeian</a>
-                                        <time datetime="2017-03-24T18:18">2022-03-11 - 11:00</time>
+                        @foreach($image->comments as $comment)
+
+                            <li>
+                                <div class="post_author">
+                                    <div class="img_in">
+                                        <a href="#"><img src="{{$comment->user->gravatar}}" alt=""></a>
                                     </div>
-                                    <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and
-                                        publishing industries for previewing layouts and visual mockups.</p>
-                                    <a href="#" class="reply">Replay</a>
-                                </li>
-                            </ul>
-
-
-                        </li>
-                        <li>
-                            <div class="post_author">
-                                <div class="img_in">
-                                    <a href="#"><img src="demo_img/c2.jpg" alt=""></a>
+                                    <a href="#" class="author-name">{{$comment->user->name}}</a>
+                                    <time datetime="2017-03-24T18:18">{{$comment->created_at}}</time>
                                 </div>
-                                <a href="#" class="author-name">Milad Rezaeian</a>
-                                <time datetime="2017-03-24T18:18">2022-03-11 - 11:00</time>
-                            </div>
-                            <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing
-                                industries for previewing layouts and visual mockups.</p>
-                            <a href="#" class="reply">Replay</a>
-                        </li>
+                                <p>{{$comment->body}}</p>
+                            </li>
+
+                        @endforeach
 
                     </ul>
 
+                    @auth()
 
-                    <h3 class="post-box-title">Post comments</h3>
-                    <form>
-                        <input type="text" class="form-control" id="Name" placeholder="Name">
-                        <input type="email" class="form-control" id="Email" placeholder="Email">
-                        <input type="text" class="form-control" placeholder="Site">
-                        <textarea class="form-control" rows="8" id="Message" placeholder="Message"></textarea>
-                        <button type="button" id="contact_submit" class="btn btn-dm">Submit</button>
-                    </form>
+                        <h3 class="post-box-title">Post comments</h3>
+                        <form action="{{route('comments.store', $image)}}" method="post">
+                            @csrf
+                            <textarea class="form-control" name="body" rows="8" id="Message"
+                                      placeholder="Message"></textarea>
+                            <button id="contact_submit" class="btn btn-dm">Submit</button>
+                        </form>
+
+                    @endauth
+
                 </div>
-                <!-- // Comments -->
-
             </div>
         </div>
-        <!-- // Watch -->
-
-    </div><!-- // row -->
+    </div>
 
 @endsection
 

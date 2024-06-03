@@ -17,4 +17,15 @@ class Image extends Model
     {
         return $this->belongsTo(Image::class);
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function getOwnerNameAttribute()
+    {
+        return $this->user?->name;
+    }
+
 }

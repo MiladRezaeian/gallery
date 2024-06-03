@@ -24,6 +24,8 @@ class ImageController extends Controller
 
     public function show(Image $image)
     {
+        $image->load('comments.user');
+
         return view('images.show', compact('image'));
     }
 

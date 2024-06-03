@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
@@ -17,3 +18,5 @@ Route::post('/images/{image}/', [ImageController::class, 'update'])->name('image
 Route::get('/login', [LoginController::class, 'show'])->name('login.show');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
 Route::get('/logout', [LoginController::class, 'destroy'])->name('logout');
+
+Route::post('/images/{image}/comments', [CommentController::class, 'store'])->name('comments.store');
