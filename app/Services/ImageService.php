@@ -32,4 +32,12 @@ class ImageService
 
         return $data;
     }
+
+    public function show(Image $image)
+    {
+        $image->load('comments.user');
+        $comments = $image->comments()->paginate(5);
+
+        return $comments;
+    }
 }

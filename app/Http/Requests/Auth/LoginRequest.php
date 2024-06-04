@@ -35,7 +35,7 @@ class LoginRequest extends FormRequest
     /**
      * Attempt to authenticate the request's credentials.
      *
-     * @return void
+     * @return bool
      *
      * @throws \Illuminate\Validation\ValidationException
      */
@@ -47,5 +47,7 @@ class LoginRequest extends FormRequest
                 'email' => 'The email or password you entered is incorrect.',
             ]);
         }
+
+        return true;
     }
 }

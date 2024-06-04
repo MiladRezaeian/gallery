@@ -4,15 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCommentRequest;
 use App\Models\Image;
+use App\Services\CommentService;
+use Illuminate\Http\Client\Request;
 
 class CommentController extends Controller
 {
     public function store(StoreCommentRequest $request, Image $image)
     {
-        $image->comments()->create([
-            'user_id' => auth()->id(),
-            'body' => $request->body
-        ]);
+        (new CommentService)->create($request, $image);
 
         return back()->with('alert', 'Comment has been sent successfully.');
     }

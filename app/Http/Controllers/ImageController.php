@@ -25,8 +25,7 @@ class ImageController extends Controller
 
     public function show(Image $image)
     {
-        $image->load('comments.user');
-        $comments = $image->comments()->paginate(5);
+        $comments = (new ImageService)->show($image);
 
         return view('images.show', compact('image', 'comments'));
     }
