@@ -14,7 +14,7 @@
 
                 <x-validation-errors></x-validation-errors>
 
-                <form action="" method="POST">
+                <form action="{{ route('register') }}" method="POST">
                     @csrf
                     <div class="form-group label-floating">
                         <label class="control-label">Name</label>

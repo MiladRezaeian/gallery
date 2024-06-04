@@ -62,7 +62,7 @@
                                     src="https://0.gravatar.com/avatar/6a364e96288458765d7fb94777972d2e95458ddff85c92f5785a827cb5f6304e?s=80"
                                     alt="">
                             </div>
-                            <h2>Milad Rezaeian</h2>
+                            <h2>{{ Auth::user()->name }}</h2>
                             <h3>Share Image</h3>
                             <i class="fa fa-angle-down"></i>
                         </a>
@@ -77,7 +77,7 @@
             @guest
                 <div class="col-lg-2 col-md-2 col-sm-3 hidden-xs hidden-sm">
                     <a href="{{route('login.show')}}" class="btn btn-danger">Login</a>
-                    <a href="" class="btn btn-danger">Register</a>
+                    <a href="{{route('register.show')}}" class="btn btn-danger">Register</a>
                 </div>
             @endguest
         </div><!-- // row -->
