@@ -16,7 +16,7 @@ class LatestImages extends Component
      */
     public function __construct()
     {
-        $this->images = Image::with(['user'])->latest()->take(30)->get();
+        $this->images = Image::with(['user'])->latest()->paginate(10);
     }
 
     /**

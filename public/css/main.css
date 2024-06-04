@@ -2622,6 +2622,9 @@ header ul.top-menu li a{
 #watch .description p {
     color: black;
 }
+.pagination-wrapper {
+    text-align: center;
+}
 @media screen and (max-width: 375px) {
 }
 @media screen and (max-width: 260px) {

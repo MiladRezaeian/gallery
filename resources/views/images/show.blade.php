@@ -34,7 +34,7 @@
                     <h3 class="post-box-title"><span>{{$image->comments->count()}}</span> Comments</h3>
                     <ul class="comments-list">
 
-                        @foreach($image->comments as $comment)
+                        @foreach($comments as $comment)
 
                             <li>
                                 <div class="post_author">
@@ -50,6 +50,8 @@
                         @endforeach
 
                     </ul>
+
+                    <x-pagination :items="$comments"></x-pagination>
 
                     @auth()
 

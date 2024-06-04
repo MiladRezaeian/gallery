@@ -26,8 +26,9 @@ class ImageController extends Controller
     public function show(Image $image)
     {
         $image->load('comments.user');
+        $comments = $image->comments()->paginate(5);
 
-        return view('images.show', compact('image'));
+        return view('images.show', compact('image', 'comments'));
     }
 
     public function edit(Image $image)
@@ -35,7 +36,7 @@ class ImageController extends Controller
         return view('images.edit', compact('image'));
     }
 
-    public function update(UpdateImageRequest $request,Image $image)
+    public function update(UpdateImageRequest $request, Image $image)
     {
         (new ImageService)->update($image, $request->all());
 

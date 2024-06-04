@@ -1,4 +1,5 @@
 <h1 class="new-image-title"><i class="fa fa-bolt"></i>Last Images</h1>
+
 <div class="row">
 
     @foreach ($images as $image)
@@ -6,3 +7,5 @@
     @endforeach
 
 </div>
+
+<x-pagination :items="$images"></x-pagination>
