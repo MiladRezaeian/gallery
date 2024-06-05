@@ -20,6 +20,7 @@ class ImageResource extends JsonResource
             'path' => $this->path,
             'description' => $this->description,
             'owner_name' => $this->owner_name,
+            'created_at' => $this->created_at
         ];
     }
 }
