@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.layout')
 
 @section('content')
 
@@ -10,7 +10,8 @@
             <!-- upload -->
             <div class="col-md-12">
                 <h1 class="page-title"><span>Upload</span> Image</h1>
-                <form action="{{ route('images.update', ['image' => $image->id]) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('images.update', ['image' => $image->id]) }}" method="POST"
+                      enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
