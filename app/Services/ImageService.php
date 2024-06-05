@@ -27,8 +27,12 @@ class ImageService
 
     private function putFile(array $data)
     {
-        $path = Storage::putFile('public/images', $data['file']);
+        $uploadedFile = $data['file'];
+        $path = Storage::putFile('public/images', $uploadedFile);
         $data['path'] = $path;
+
+        $mime_type = $uploadedFile->getMimeType();
+        $data['mime_type'] = $mime_type;
 
         return $data;
     }

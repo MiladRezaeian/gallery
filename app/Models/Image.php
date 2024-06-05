@@ -10,7 +10,7 @@ class Image extends Model
     use HasFactory;
 
     protected $fillable = [
-      'name', 'description', 'path'
+      'name', 'description', 'path', 'mime_type'
     ];
 
     public function user()
