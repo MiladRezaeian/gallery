@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ImageResource;
 use App\Models\Image;
-use App\Services\Api\V1\ImageService;
+use App\Services\ImageService;
 use Illuminate\Http\Request;
 
 class ImageController extends Controller

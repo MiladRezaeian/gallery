@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use App\Models\Image;
+use App\Services\ImageService;
 use Illuminate\View\Component;
 
 class LatestImages extends Component
@@ -16,7 +17,7 @@ class LatestImages extends Component
      */
     public function __construct()
     {
-        $this->images = Image::with(['user'])->latest()->paginate(10);
+        $this->images = (new ImageService)->index();
     }
 
     /**

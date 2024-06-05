@@ -9,6 +9,12 @@ use Symfony\Component\HttpFoundation\File\File;
 
 class ImageService
 {
+
+    public function index()
+    {
+        return Image::with(['user'])->latest()->paginate(10);
+    }
+
     public function create(User $user, array $data)
     {
         $data = $this->putFile($data);
