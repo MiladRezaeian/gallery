@@ -4,7 +4,9 @@
 
     <div class="row">
 
-        <x-validation-errors></x-validation-errors>
+        @if (isset($errors))
+            <x-validation-errors></x-validation-errors>
+        @endif
 
         <div class="col-md-12">
             <div id="watch">
@@ -51,7 +53,9 @@
 
                     </ul>
 
-                    <x-pagination :items="$comments"></x-pagination>
+                    @if( $comments instanceof Collection && !$comments->isEmpty() )
+                        <x-pagination :items="$comments"></x-pagination>
+                    @endif
 
                     @auth()
 

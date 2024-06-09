@@ -33,7 +33,6 @@ class RegistrationTest extends TestCase
         ]);
 
         $response->assertRedirect();
-
         $this->assertDatabaseHas('users', [
             'name' => $name,
             'email' => $email,
@@ -47,8 +46,6 @@ class RegistrationTest extends TestCase
      */
     public function test_it_redirects_to_intended_page_after_successful_registration()
     {
-        $this->withoutExceptionHandling();
-
         $response = $this->followingRedirects()->post(route('register'), [
             'name' => 'John Doe',
             'email' => 'johndoe@example.com',
@@ -57,7 +54,6 @@ class RegistrationTest extends TestCase
         ]);
 
         $response->assertOk()->assertSee('Registration successful! Welcome aboard.');
-
         $this->assertTrue(Auth::check());
     }
 }

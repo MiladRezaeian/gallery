@@ -32,7 +32,6 @@ class LoginTest extends TestCase
         ]);
 
         $response->assertRedirect();
-
         $this->assertTrue(Auth::check());
     }
 }

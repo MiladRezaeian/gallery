@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\ٰViews;
+namespace Tests\Feature\Views\Layouts;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
