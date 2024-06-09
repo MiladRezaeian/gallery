@@ -38,4 +38,31 @@ class ShowViewTest extends TestCase
         );
     }
 
+    public function test_show_view_rendered_when_user_is_not_login(): void
+    {
+        $image = Image::factory()->create();
+        $comments = [];
+
+        $view = (string)$this
+            ->view(
+                'images.show',
+                compact('image', 'comments')
+            );
+
+        $dom = new \DomDocument();
+
+        libxml_use_internal_errors(true);
+        $dom->loadHTML($view);
+        libxml_use_internal_errors(false);
+
+        $dom = new \DOMXPath($dom);
+
+        $action = route('comments.store', ['image' => $image->id]);
+
+        $this->assertCount(
+            0,
+            $dom->query("//form[@method='post'][@action='$action']/textarea[@name='body']")
+        );
+    }
+
 }
