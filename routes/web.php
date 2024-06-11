@@ -5,6 +5,10 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\IndexController;
+use App\Mail\UserRegistered;
+use App\Services\Notification\NotificationService;
+use Illuminate\Mail\Mailable;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
@@ -31,3 +35,8 @@ Route::prefix('register')->group(function () {
 });
 
 Route::post('/images/{image}/comments', [CommentController::class, 'store'])->name('comments.store');
+
+Route::get('/mail',function (){
+    $notification = resolve(NotificationService::class);
+    $notification->sendEmail(\App\Models\User::find(1), new UserRegistered());
+});
